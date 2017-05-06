@@ -32,6 +32,6 @@ The codes and instructions on how to run can be found in [MLP_lossless](https://
 For the lossy compresison, we tried three different architectures.
 Details,results and some exmaples of all of them can be found in the [report](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/blob/master/report.pdf)
 The codes and instructions on how to run can be found in the following folders
--[Autoencoders](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/tree/master/Autoencoders)
--[GAN](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/tree/master/Autoencoders)
--[GAN-AE](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/tree/master/Autoencoders)
+- [Autoencoders](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/tree/master/Autoencoders)
+- [GAN](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/tree/master/Autoencoders)
+- [GAN-AE](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/tree/master/Autoencoders)
