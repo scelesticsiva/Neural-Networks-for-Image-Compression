@@ -1,4 +1,4 @@
-## Lossyimage compression using autoencoders
+## Lossy image compression using autoencoders
 
 This part 4 different aprroaches with autoencoders.
 For running the codes, follow the steps in notebook files
