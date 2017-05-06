@@ -6,5 +6,3 @@ For running the codes, follow the steps in notebook files
 - [CNN-AE and CNN-AE-FT](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/blob/master/Autoencoders/CNN-AE-FT.ipynb) 
 - [CNN-RNN-AE](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/blob/master/Autoencoders/CNN-RNN-AE.ipynb) 
 
-[Benchmark](https://github.com/scelesticsiva/Neural-Networks-for-Image-Compression/tree/master/MLP_lossless/benchmark)
-includes MATLAB codes for getting the benchmark results using JPEG and JPEG-2000.
