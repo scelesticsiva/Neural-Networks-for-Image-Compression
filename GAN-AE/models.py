@@ -152,7 +152,12 @@ class GAN_AE(object):
         self.gen_loss = tf.reduce_mean(logits_fake) 
         tf.summary.scalar("Disc_loss", self.discriminator_loss)
         tf.summary.scalar("Gen_loss", self.gen_loss)
-
+    
+    def dcgan_loss(self, disc_real, disc_fake):
+        self.discriminator_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=disc_real, labels=tf.ones_like(disc_real)))
+        self.discriminator_loss += tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=disc_fake, labels=tf.zeros_like(disc_fake)))  
+        self.gen_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=disc_fake, labels=tf.ones_like(disc_fake)))
+ 
     #weighted L1 loss 
     def add_l1_loss(self, real_image, fake_image, reg_var):
         self.gen_loss += reg_var * tf.reduce_mean(tf.abs(real_image - fake_image))
@@ -228,10 +233,11 @@ class GAN_AE(object):
         elif loss_type == "wasserstein_l1_loss":
             self.wgan_loss(logits_real, logits_fake)
             self.add_l1_loss(self.real_batch, self.gen_images, 10)
-       # elif loss_type =="dcgan":
-       #     self.dcgan_loss()            
+        elif loss_type == "dcgan":
+            self.dcgan_loss(logits_real, logits_fake)
+            self.add_l2_loss(self.real_batch, self.gen_images, 50) 
         else:
-            raise ValueError("Unknown loss %s" % loss_type)
+            raise ValueError("Unknown loss %s" % optimizer_name)              
         
         train_variables = tf.trainable_variables()
         self.generator_variables = [v for v in train_variables if v.name.startswith("generator")]
