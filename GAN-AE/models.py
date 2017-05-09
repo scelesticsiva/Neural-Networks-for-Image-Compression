@@ -16,9 +16,10 @@ class GAN_AE(object):
         self.test_images =  self.cifar10_dataset('test',1, num_test_data)
         self.disc_iterations = disc_iterations
         self.clip_values = clip_values #clip of weights in wasserstein to approximate Lipschitz
+        self.alpha = 10 #weight of the L- losses
         self.z_dim = 32 #input dim
         self.real_dim = 32 #real images dim
-        self.logs_dir = "logs/wgan_logs/"
+        self.logs_dir = "logs/gan_ae_logs/"
         self.folder = folder
 
     #returns original or downsampled cifar images            
@@ -226,16 +227,16 @@ class GAN_AE(object):
             self.imp_wgan_loss(logits_real, logits_fake,self.real_batch, self.gen_images)
         elif loss_type == "imp_wasserstein_l2_loss":
             self.imp_wgan_loss(logits_real, logits_fake,self.real_batch, self.gen_images)
-            self.add_l2_loss(self.real_batch, self.gen_images, 1)
+            self.add_l2_loss(self.real_batch, self.gen_images, self.alpha)
         elif loss_type == "wasserstein_l2_loss":
             self.wgan_loss(logits_real, logits_fake)
-            self.add_l2_loss(self.real_batch, self.gen_images, 10)
+            self.add_l2_loss(self.real_batch, self.gen_images, self.alpha)
         elif loss_type == "wasserstein_l1_loss":
             self.wgan_loss(logits_real, logits_fake)
-            self.add_l1_loss(self.real_batch, self.gen_images, 10)
+            self.add_l1_loss(self.real_batch, self.gen_images, self.alpha)
         elif loss_type == "dcgan":
             self.dcgan_loss(logits_real, logits_fake)
-            self.add_l2_loss(self.real_batch, self.gen_images, 50) 
+            self.add_l2_loss(self.real_batch, self.gen_images, self.alpha) 
         else:
             raise ValueError("Unknown loss %s" % optimizer_name)              
         
