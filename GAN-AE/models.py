@@ -279,12 +279,12 @@ class GAN_AE(object):
                    feed_dict = get_feed_dict()
                    sess.run(self.generator_train_op, feed_dict=feed_dict)
                    
-                   if itr % 10000 ==0:
+                   if itr % 5000 ==0:
                         gen_out = sess.run(self.gen_images, feed_dict=feed_dict )
                         real_out = sess.run(self.real_batch, feed_dict=feed_dict )
                         print(np.mean(np.square(gen_out-real_out)))
                    
-                   if itr % 1000== 0:
+                   if itr % 10000== 0:
                         summary_str = sess.run(self.summary_op, feed_dict=feed_dict)
                         self.summary_writer.add_summary(summary_str, itr)
                         
@@ -336,7 +336,7 @@ class GAN_AE(object):
                         test_res = convert2uint8(test_res)
                         skimage.io.imsave('./'+self.folder+'/test'+str(itr)+'.tiff', test_res)
                         #
-                   if itr % 10000 == 0:
+                   if itr % 50000 == 0:
                         stop_time = time.time()
                         duration = (stop_time - start_time) / 5.0
                         start_time = stop_time
@@ -345,7 +345,7 @@ class GAN_AE(object):
                         print("Time: %g/itr, Step: %d, generator loss: %g, discriminator_loss: %g" % (
                         duration, itr, g_loss_val, d_loss_val))
              
-                   if itr % 10000 == 0:
+                   if itr % 100000 == 0:
                         self.saver.save(sess, self.logs_dir + "model.ckpt", global_step=itr)
             f.close()
            
