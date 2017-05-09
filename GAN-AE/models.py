@@ -284,7 +284,7 @@ class GAN_AE(object):
                         real_out = sess.run(self.real_batch, feed_dict=feed_dict )
                         print(np.mean(np.square(gen_out-real_out)))
                    
-                   if itr % 100== 0:
+                   if itr % 1000== 0:
                         summary_str = sess.run(self.summary_op, feed_dict=feed_dict)
                         self.summary_writer.add_summary(summary_str, itr)
                         
