@@ -1,4 +1,4 @@
-#we got help from srez repository in choosing some parameters and writing a couple of utility functions.
+#got help from srez repository in choosing some parameters and writing a couple of utility functions.
 
 from __future__ import print_function
 import numpy as np
