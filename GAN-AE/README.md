@@ -16,10 +16,10 @@ Adding L1 distance did not work as good as adding L2 distance to the loss functi
 
 Suggestions : 
 
-Use RmsProp for Wasserstein, Adam for DCGAN.
-Choose lower learning rate for Wasserstein, a little higher for DCGAN
-More than 500.000 iterations is suggested to get good reconstructed images. At each iteration, we are sampling from data to construct a batch.   
-Choose alpha parameter around/more than 10 (weight of the similarity loss)
+- Use RmsProp for Wasserstein, Adam for DCGAN.
+- Choose lower learning rate for Wasserstein, a little higher for DCGAN
+- More than 500.000 iterations is suggested to get good reconstructed images. At each iteration, we are sampling from data to construct a batch.   
+- Choose alpha parameter around/more than 10 (weight of the similarity loss)
 
 
 
