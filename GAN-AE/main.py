@@ -27,11 +27,8 @@ def main(argv=None):
     print("stage 2")
     model.create_model(discriminator_dims, kernel_encoder, kernel_decoder, encoder_dims, decoder_dims, "RMSProp", FLAGS.learning_rate,
                          FLAGS.optimizer_param, FLAGS.loss_type)
-
     print("stage 3")
     model.train_model(FLAGS.batch_size, int(FLAGS.iterations))
-
-    discriminator_dims = [3, 16, 64, 1]
 
 if __name__ == "__main__":
     tf.app.run()
