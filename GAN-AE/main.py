@@ -23,7 +23,7 @@ def main(argv=None):
 
     print("stage 1")
     model = models.GAN_AE(FLAGS.batch_size,
-                         clip_values=(-0.01, 0.01), disc_iterations=5, num_train_data=38400, num_test_data=6400, folder='denemel1')
+                         clip_values=(-0.01, 0.01), disc_iterations=5, num_train_data=38400, num_test_data=6400, folder='gan_ae')
     print("stage 2")
     model.create_model(discriminator_dims, kernel_encoder, kernel_decoder, encoder_dims, decoder_dims, "RMSProp", FLAGS.learning_rate,
                          FLAGS.optimizer_param, FLAGS.loss_type)
