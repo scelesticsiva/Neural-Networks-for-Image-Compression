@@ -1,3 +1,19 @@
-## Lossy image compression using generative adversarial netwotks
+## Lossy image compression using generative adversarial networks
 
-Thsi part to is not ready for testing, yet. It will be organized as soon as possible
+It contains two structures with 2 different generator model: 
+- 3 layer fully convolutional network
+- Much smaller version of Resnet (given in the report)
+
+2 different generators are written in two different functions. In order to use each of them, generator in the training stage should be changed. 
+
+Loss functions: 
+- Wasserstein gan 
+- Wasserstein gan + L2 loss
+- Dcgan 
+- Dcgan + L2 loss
+
+Parameters can be changed by utilizing FLAGS or class variables. 
+
+
+
+
