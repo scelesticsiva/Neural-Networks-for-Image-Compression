@@ -12,7 +12,7 @@ Loss functions:
 - Dcgan 
 - Dcgan + L2 loss
 
-Parameters can be changed by utilizing FLAGS or class variables. 
+Parametersand loss function options can be selected by utilizing FLAGS or class variables. 
 
 
 
