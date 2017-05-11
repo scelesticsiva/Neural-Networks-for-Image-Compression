@@ -4,7 +4,7 @@ It contains two structures with 2 different generator model:
 - 3 layer fully convolutional network
 - Much smaller version of Resnet (given in the report)
 
-2 different generators are written in two different functions. In order to use each of them, generator in the training stage should be changed. 
+2 different generators are written in two different functions. In order to use each of them, generator function's name in the training stage should be changed. (generator / generator_res)
 
 Loss functions: 
 - Wasserstein gan 
